@@ -15,12 +15,13 @@ url = "https://raw.githubusercontent.com/Iamsdt/Udacity-ML-Azure-Capstone/master
 
 ds = TabularDatasetFactory.from_delimited_files(path=url)
 
-
 def prepare_data(data):
-    y_df = data['DEATH_EVENT']
-    x_df = data.drop(['DEATH_EVENT'], axis=1)
+    #convert into dataframe
+    # and drop nan values     
+    x_df = data.to_pandas_dataframe().dropna()
+    y_df = x_df['DEATH_EVENT']
+    x_df = x_df.drop(['DEATH_EVENT'], axis=1)
     return x_df, y_df
-
 
 # clean datasets
 x, y = prepare_data(ds)
@@ -31,7 +32,6 @@ x_train, x_test, y_train, y_test = train_test_split(
     x, y, test_size=0.20, random_state=121)
 
 run = Run.get_context()
-
 
 def main():
     # Add arguments to script
@@ -54,7 +54,6 @@ def main():
     run.log("Accuracy", np.float(accuracy))
 
     joblib.dump(model, 'outputs/hymodel.joblib')
-
 
 if __name__ == '__main__':
     main()
