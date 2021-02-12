@@ -137,7 +137,7 @@ Here is top 10 models, produced by auto ml.
 
 Now we can check the metrics of the best model, here is the best metrics
 
-```json
+```
 {'average_precision_score_micro': 0.9172347849082338,
  'recall_score_micro': 0.8728813559322035,
  'precision_score_macro': 0.8732482337353845,
@@ -162,6 +162,8 @@ Now we can check the metrics of the best model, here is the best metrics
  'accuracy_table': 'aml://artifactId/ExperimentRun/dcid.AutoML_0877cba1-4cb9-4e5c-97ed-f0b1f0c1aafe_38/accuracy_table',
  'confusion_matrix': 'aml://artifactId/ExperimentRun/dcid.AutoML_0877cba1-4cb9-4e5c-97ed-f0b1f0c1aafe_38/confusion_matrix'}
 ```
+
+
 
 We also extract the parameter from the best model, by using this code
 
